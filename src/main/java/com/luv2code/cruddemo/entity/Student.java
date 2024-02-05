@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name="student")
-public class student {
+public class Student {
     // map fields to database columns //
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -23,11 +23,11 @@ public class student {
     private String email;
 
 
-public student(){
+public Student(){
 
 }
 
-    public student(String firstName , String lastName , String email) {
+    public Student(String firstName , String lastName , String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
