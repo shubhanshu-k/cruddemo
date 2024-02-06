@@ -22,10 +22,21 @@ public class CruddemoApplication {
 		return runner->{
 			//CreateStudent(studentDAO);
 			//create single student 
-			
+			readStudent(studentDAO);
 			// for creating multiple students
-			createMultiplestudents(studentDAO);
+//			createMultiplestudents(studentDAO);
 		};
+	}
+
+	private void readStudent(StudentDAO studentDAO) {
+ Student tempStudent = new Student( "champa", "rani", "rani@gmail.com");
+
+ studentDAO.save(tempStudent);
+ int theId = tempStudent.getId();
+		System.out.println("id is"+ theId);
+
+ Student myStudent = studentDAO.findById(theId);
+		System.out.println("student is"+ myStudent);
 	}
 
 	private void createMultiplestudents(StudentDAO studentDAO) {
