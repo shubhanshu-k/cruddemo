@@ -20,8 +20,8 @@ public class CruddemoApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(StudentDAO studentDAO){
-		return runner->{
+	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
+		return runner -> {
 			//CreateStudent(studentDAO);
 			//create single student 
 //			readStudent(studentDAO);
@@ -29,8 +29,22 @@ public class CruddemoApplication {
 //			createMultiplestudents(studentDAO);
 
 //		  queryForStudents(studentDAO);
-			queryForStudentsByLastName(studentDAO);
+//			queryForStudentsByLastName(studentDAO);
+			updateStudent(studentDAO);
 		};
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+		// retreive student based on id: primary key
+		// change first name to "scooby"
+		// update the student
+		// display the updated student
+		int studentId = 1;
+		System.out.println("Getting student with id:" + studentId);
+		Student myStudent = studentDAO.findById(studentId);
+		myStudent.setFirstName("scooby");
+		studentDAO.update(myStudent);
+		System.out.println(myStudent);
 	}
 
 	private void queryForStudentsByLastName(StudentDAO studentDAO) {
